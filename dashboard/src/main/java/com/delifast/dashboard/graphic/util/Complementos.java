@@ -1,4 +1,4 @@
-package com.delifast.dashboard.graphic;
+package com.delifast.dashboard.graphic.util;
 
 import java.util.Random;
 
@@ -23,7 +23,7 @@ public class Complementos {
 	public static class Data {
 		public static int numeroAleatorio() {
 			Random r = new Random();
-			return r.nextInt(250 - 50 + 1);
+			return r.nextInt(250 - 80 + 1);
 		}
 
 		public static int[] arrayAleatorio(int leng) {

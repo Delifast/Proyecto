@@ -1,4 +1,4 @@
-package com.delifast.dashboard.graphic;
+package com.delifast.dashboard.graphic.util;
 
 public class DataSet {
 	

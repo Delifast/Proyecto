@@ -154,7 +154,7 @@ public class ClienteController {
     @PostMapping("/clientes")
     public Cliente createCliente(@Valid @RequestBody Cliente cliente) {
     	cliente = calcularIR(cliente);
-    	servicesendmail.enviarCorreo(cliente);
+    	//servicesendmail.enviarCorreo(cliente);
         return clienteRepository.save(cliente);
     }
 
