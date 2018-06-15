@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{css/estilos.css}">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.22.0/sweetalert2.all.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.22.0/sweetalert2.js"></script>
+    
+    <title>DeliFast</title>
+</head>
+<script>
+function comprar(){
+    swal({
+        title: 'Gracias por su compra',
+        text: 'Su compra se realizó exitosamente',
+        type: 'success',
+    });
+}
+</script>
+<body>
+    <header>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="#" class="navbar-brand" style="font-size: 28px">DeliFast</a>
+				</div>
+				<div class="collapse navbar-collapse" id="btn-colapsar">
+					<form class="navbar-form navbar-right" action="" role="search">
+						<div class="form-group">
+                            <button type="submit" class="btn btn-default">Iniciar sesion</button>
+						</div>
+					</form>
+				</div>
+			</div>				
+		</nav>
+	</header>
+
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 margen">
+					<div class="page-header">
+						<h1 class="text-center">Platos Recomendados:</h1>
+					</div>
+				</div>
+
+							<div class="col-xs-12 col-sm-6 col-md-4">
+								<div class="thumbnail">
+									<a href="#">
+										<img th:src="@{images/salad1.jpg}" alt="">
+									</a>
+									<div class="caption">
+										<h3>Shupe de Camarones</h3>
+										<p>Camarones frescos en su punto, listo para ser degustados.</p>
+										<p>
+											<button type="button" class="btn btn-primary col-md-4 espacio" data-toggle="modal" data-target="#exampleModalCenter">PEDIR</button>
+											<div class="input-group  col-md-7">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[1]">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+												<input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="100">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[1]">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</span>
+											</div>
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-6 col-md-4">
+								<div class="thumbnail">
+									<a href="#">
+										<img th:src="@{images/salad2.jpg}" alt="">
+									</a>
+									<div class="caption">
+										<h3>Ensalada Fresca</h3>
+										<p>Arta lechuga, tomates y cebollas; todos frescos.</p>
+										<p>
+			                                <a href="#" class="btn btn-primary col-md-4 espacio" data-toggle="modal" data-target="#exampleModalCenter">PEDIR</a>
+											<div class="input-group  col-md-7">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+												<input type="text" name="quant[2]" class="form-control input-number" value="1" min="1" max="100">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</span>
+											</div>
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-6 col-md-4">
+								<div class="thumbnail">
+									<a href="#">
+										<img th:src="@{images/salad3.jpg}" alt="">
+									</a>
+									<div class="caption">
+										<h3>Ensalada Balanceada</h3>
+										<p>La ensalada que tu cuerpo necesita para poder estar con energía todo el día.</p>
+										<p>
+			                                <a href="#" class="btn btn-primary col-md-4 espacio" data-toggle="modal" data-target="#exampleModalCenter">PEDIR</a>
+											<div class="input-group  col-md-7">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[3]">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+												<input type="text" name="quant[3]" class="form-control input-number" value="1" min="1" max="100">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[3]">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</span>
+											</div>
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-6 col-md-4">
+								<div class="thumbnail">
+									<a href="#">
+										<img th:src="@{images/salad4.jpg}" alt="">
+									</a>
+									<div class="caption">
+										<h3>Ensalada de Espinaca</h3>
+										<p>La mejor ensalada para que este como "Popeye".</p>
+										<p>
+			                               <a href="#" class="btn btn-primary col-md-4 espacio" data-toggle="modal" data-target="#exampleModalCenter">PEDIR</a>
+											<div class="input-group  col-md-7">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[4]">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+												<input type="text" name="quant[4]" class="form-control input-number" value="1" min="1" max="100">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[4]">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</span>
+											</div>
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-6 col-md-4">
+								<div class="thumbnail">
+									<a href="#">
+										<img th:src="@{images/salad5.jpg}" alt="">
+									</a>
+									<div class="caption">
+										<h3>Ensalada Rusa</h3>
+										<p>Ensalda rusa con un toque de frutos y huevo.</p>
+										<p>
+			                               <a href="#" class="btn btn-primary col-md-4 espacio" data-toggle="modal" data-target="#exampleModalCenter">PEDIR</a>
+											<div class="input-group  col-md-7">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[5]">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+												<input type="text" name="quant[5]" class="form-control input-number" value="1" min="1" max="100">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[5]">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</span>
+											</div>
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-6 col-md-4">
+								<div class="thumbnail">
+									<a href="#">
+										<img th:src="@{images/s2.jpg}" alt="">
+									</a>
+									<div class="caption">
+										<h3>Pollo con fideos orientales</h3>
+										<p>Rico pollo crocante con los selectos fideos del oriente.</p>
+										<p>
+			                                <a href="#" class="btn btn-primary col-md-4 espacio" data-toggle="modal" data-target="#exampleModalCenter">PEDIR</a>
+											<div class="input-group  col-md-7">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[6]">
+														<span class="glyphicon glyphicon-minus"></span>
+													</button>
+												</span>
+												<input type="text" name="quant[6]" class="form-control input-number" value="1" min="1" max="100">
+												<span class="input-group-btn">
+													<button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[6]">
+														<span class="glyphicon glyphicon-plus"></span>
+													</button>
+												</span>
+											</div>
+										</p>
+									</div>
+								</div>
+							</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container" style="background-color: black">
+			<div class="row">
+				<div class="col-md-12" style="color:white">
+					<hr>
+					<p class="pull-left">
+						@YachiTeam
+					</p>
+					<p class="pull-right"><a href="#">Ir Arriba</a></p>
+					<br>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+			<div class="modal-body">
+					<h2>Pedir Plato</h2>            
+					<table class="table">
+						<thead>
+						<tr>
+							<th>Plato</th>
+							<th>Precio Unitario</th>
+							<th>Cantidad</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Shupe de Camarones</td>
+							<td>S/.25.00</td>
+							<td>2</td>
+						</tr>
+						</tbody>
+					</table>
+			<h4>Total: S/50.00</h4>
+		</div>
+			<div class="modal-footer">
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="comprar()">Comprar</button>
+			</div>
+		  </div>
+		</div>
+	</div>
+
+	<script th:src="@{js/jquery.js}"></script>
+	<script th:src="@{js/bootstrap.min.js}"></script>
+	<script th:src="@{js/contador.js}"></script>
+</body>
+</html>
