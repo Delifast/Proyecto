@@ -15,4 +15,9 @@ public class NavController {
 	    public String restaurant() {
 	        return "restaurant";
 	    }
+	    
+	    @GetMapping("/pasarela-pago")
+	    public String pasarela() {
+	        return "pasarela";
+	    }
 }

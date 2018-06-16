@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
-import com.delifast.dashboard.graphic.util.Complementos;
-import com.delifast.dashboard.graphic.util.DataSet;
-import com.delifast.dashboard.graphic.util.Grafica;
-import com.delifast.dashboard.graphic.util.Graficador;
+import com.delifast.dashboard.graphic.Complementos;
+import com.delifast.dashboard.graphic.DataSet;
+import com.delifast.dashboard.graphic.Grafica;
+import com.delifast.dashboard.graphic.Graficador;
 import com.delifast.dashboard.model.Cliente;
 import com.delifast.dashboard.model.Platos;
 
@@ -34,17 +34,7 @@ public class DashboardController {
 		
 		List<Grafica> graficas = crearGraficas(clientes);
 
-		
-		for (Grafica grafica : graficas) {
-			for (DataSet ds : grafica.getDatasets()) {
-				System.out.println("ds : " + ds.getLabel());
-				System.out.println("indice : " + grafica.getDatasets().indexOf(ds));
-			}
-		}
-
-		
-
-		clientes.stream().forEach(nombre -> System.out.println("nombre : " + nombre));
+		//clientes.stream().forEach(nombre -> System.out.println("nombre : " + nombre));
 
 		return new ResponseEntity<List<Grafica>>(graficas, HttpStatus.OK);
 	}
@@ -55,16 +45,10 @@ public class DashboardController {
 		
 		List<Grafica> graficas = new ArrayList<Grafica>();
 		Graficador graficador = new Graficador();
+		int sizeClientes = clientes.size();
 
-		graficador.agregarDataDataSet(Complementos.Data.arrayAleatorio(6));
-		graficador.agregarBackgroundColorDataSet(
-				new String[] { 
-						 Complementos.Color.ROJO,
-						 Complementos.Color.NARANJA,
-						 Complementos.Color.AMARILLO,
-						 Complementos.Color.VERDE,
-						 Complementos.Color.AZUL,
-						 Complementos.Color.MORADO });
+		graficador.agregarDataDataSet(Complementos.Data.arrayAleatorio(sizeClientes));
+		graficador.agregarBackgroundColorDataSet(Complementos.Color.arrayColores(sizeClientes));
 		graficador.agregarLabelDataSet("Cantidad de compras");
 		graficador.agregarDataSetToGrafica();
 
@@ -72,7 +56,7 @@ public class DashboardController {
 				graficador.generarGrafica(
 						"doughnut",
 						"Compra de los Usuarios en unidades",
-						clientes.toArray(new String[clientes.size()])));
+						clientes.toArray(new String[sizeClientes])));
 		
 		/***************************************************GRAFICA DE PLATOS VENDIDOS POR USUARIO****************************************************************/		
 		graficador.resetearPropiedades();
@@ -129,20 +113,13 @@ public class DashboardController {
 				graficador.generarGrafica(
 						"bar",
 						"Platos vendidos por Cliente",
-						clientes.toArray(new String[clientes.size()])));
+						clientes.toArray(new String[sizeClientes])));
 		
 		/***************************************************GRAFICA DE PLATOS VENDIDOS****************************************************************/
 		graficador.resetearPropiedades();
 		
 		graficador.agregarDataDataSet(Complementos.Data.arrayAleatorio(6));
-		graficador.agregarBackgroundColorDataSet(
-				new String[] { 
-						 Complementos.Color.ROJO,
-						 Complementos.Color.NARANJA,
-						 Complementos.Color.AMARILLO,
-						 Complementos.Color.VERDE,
-						 Complementos.Color.AZUL,
-						 Complementos.Color.MORADO });
+		graficador.agregarBackgroundColorDataSet(Complementos.Color.arrayColores(6));
 		graficador.agregarLabelDataSet("Cantidad de platos vendidos");
 		graficador.agregarDataSetToGrafica();
 
@@ -168,7 +145,7 @@ public class DashboardController {
 		graficador.agregarDataDataSet(Complementos.Data.arrayAleatorio(6));
 		graficador.agregarBackgroundColorDataSet(
 				new String[] { 
-						 Complementos.Color.NARANJA
+						 Complementos.Color.RANDOM
 						});
 		graficador.agregarLabelDataSet("Edad del Usuario");
 		graficador.agregarDataSetToGrafica();
@@ -190,15 +167,7 @@ public class DashboardController {
 		graficador.resetearPropiedades();
 		
 		graficador.agregarDataDataSet(Complementos.Data.arrayAleatorio(6));
-		graficador.agregarBackgroundColorDataSet(
-				new String[] {
-					 Complementos.Color.VERDE,
-					 Complementos.Color.PLOMO,
-					 Complementos.Color.ROJO,
-					 Complementos.Color.AZUL,
-					 Complementos.Color.MORADO,
-					 Complementos.Color.NARANJA
-				});
+		graficador.agregarBackgroundColorDataSet(Complementos.Color.arrayColores(6));
 		graficador.agregarLabelDataSet("Ventas en el Distrito");
 		graficador.agregarDataSetToGrafica();
 		
@@ -266,6 +235,7 @@ public class DashboardController {
 		RestTemplate restTemplate = new RestTemplate();
 
 		return restTemplate.getForObject(URL_API_PLATOS, Platos[].class);
+		//return (new RestTemplate()).getForObject(URL_API_PLATOS, Platos[].class);
 	}
 
 }

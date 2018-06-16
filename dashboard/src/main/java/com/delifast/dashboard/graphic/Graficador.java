@@ -1,4 +1,4 @@
-package com.delifast.dashboard.graphic.util;
+package com.delifast.dashboard.graphic;
 
 import java.util.ArrayList;
 import java.util.List;
